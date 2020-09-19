@@ -23,3 +23,7 @@ included in the pom:
     <artifactId>spring-boot-starter-validation</artifactId>
 </dependency>
 ```
+Adding to `@Valid` annotation to `com.partosb.udemy.ppmtool.web.ProjectController.createNewProject`
+resulted in a more concise and readable error message in the log instead of an exception stacktrace.
+The response changed from 500 to 400 as well.
+
