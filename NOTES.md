@@ -15,7 +15,7 @@ After setting it in `\src\main\resources\application.properties` I managed to lo
 
 
 ## Validation annotations
-To have access to the package `javax.validation` the followind dependency has to be
+To have access to the package `javax.validation` the following dependency has to be
 included in the pom:
 ```
 <dependency>
