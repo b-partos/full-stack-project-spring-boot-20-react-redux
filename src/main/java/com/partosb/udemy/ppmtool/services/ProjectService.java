@@ -26,15 +26,30 @@ public class ProjectService {
     public Project findProjectByIdentifier(String projectId) {
         final Project project = projectRepository.findByProjectIdentifier(projectId);
 
-        if ( null == project ) {
-            throw  new ProjectIdException("Project ID '" + projectId + " doesn't exist.");
-        }
+        checkExistenceWithMessage(project, "Project ID '" + projectId + " doesn't exist.");
 
         return project;
     }
 
     public Iterable<Project> findAllProjects() {
         return projectRepository.findAll();
+    }
+
+    protected void checkExistenceWithMessage(Project project, String message) {
+
+        if ( null == project ) {
+            throw  new ProjectIdException(message);
+        }
+    }
+
+
+    public void deleteProjectByIdentifier(String projectId) {
+        Project project = projectRepository.findByProjectIdentifier(projectId);
+
+        checkExistenceWithMessage(project, "Cannot delete Project with ID '" + projectId + "'. Id not found.");
+
+        projectRepository.delete(project);
+
     }
 
 
