@@ -42,6 +42,7 @@ public class ProjectController {
 
     @GetMapping("/all")
     public Iterable<Project> getAllProjects() {
+        System.out.println("All request recieved.");
         return projectService.findAllProjects();
     }
 
